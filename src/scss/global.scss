@@ -62,7 +62,7 @@ button {
   font-size: 16px;
   line-height: 20px;
 
-  background: #47CF34;
+  background: #47cf34;
   border-radius: 8px;
   border: 0;
   transition: 0.2s ease;
@@ -75,18 +75,18 @@ button {
   }
 
   &_green {
-    background: #47CF34;
+    background: #47cf34;
 
     &:hover {
-      background: #30B01E
+      background: #30b01e;
     }
   }
 
   &_blue {
-    background: #287EE7;
+    background: #287ee7;
 
     &:hover {
-      background: #0e4d9b
+      background: #0e4d9b;
     }
   }
 }
@@ -116,3 +116,9 @@ label {
 //     display: block;
 //   }
 // }
+
+.hide {
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+}
