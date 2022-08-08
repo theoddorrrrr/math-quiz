@@ -54,10 +54,6 @@ module.exports = {
         loader: '@webdiscus/pug-loader',
       },
       {
-        test: /\.(woff|woff2|ttf)$/i,
-        type: 'asset/resource',
-      },
-      {
         test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
