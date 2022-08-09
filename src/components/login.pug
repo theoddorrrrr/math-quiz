@@ -1,5 +1,16 @@
-.login 
-    h1.login__title Math quiz
-    label.login__label
-        input.login__input(placeholder="Enter your nickname")
-        small please enter your name 
+.container
+    .login
+        h1.login__title Math quiz
+        label.login__label
+            input.login__input(placeholder="Enter your nickname")
+            small please enter your name 
+
+        .game-mode 
+            label.game-mode__label
+                input(type="radio" name="gamemode" value="practice" id="practice") 
+                label(for="practice"): span Practice
+            label.game-mode__label
+                input(type="radio" name="gamemode" checked value="time-attack" id="time-attack") 
+                label(for="time-attack"): span Time-Attack
+
+        button.btn.btn-play Play

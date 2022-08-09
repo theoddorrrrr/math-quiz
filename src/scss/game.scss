@@ -1,0 +1,100 @@
+// Start
+
+.game {
+}
+.game__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1em;
+
+  margin-top: 1em;
+  div {
+    flex: 1 1 45%;
+    text-align: center;
+  }
+}
+.username {
+}
+p.game__username {
+}
+.difficult {
+}
+p.game__difficult {
+}
+.time {
+}
+p.game__score {
+}
+.score {
+}
+p.game__time {
+}
+
+// End
+
+.game-end {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  color: white;
+
+  background-color: $orangeColor;
+  z-index: 99999;
+  transition: 0.5s;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.game-end__body {
+  border: 1px solid white;
+  padding: 2em;
+
+  text-align: center;
+
+  a {
+    color: inherit
+  }
+}
+.game-end__back {
+  text-decoration: underline;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+.game-end__body {
+}
+.game-end__title {
+}
+.game-end__score {
+}
+.game-end__correct {
+}
+.game-end__incorrect {
+}
+
+.game-end__btn {
+  width: 100%;
+  max-width: 250px;
+
+  background-color: white;
+  color: black;
+  border-radius: 0;
+  padding: 0.5em 3em;
+  margin: 10px auto 0 auto;
+}
+
+._show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }

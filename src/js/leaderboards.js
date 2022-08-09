@@ -1,1 +1,3 @@
-console.log('123');
+if (window.location.pathname === "/leaderboards.html") {
+  console.log("Leaderboards");
+}

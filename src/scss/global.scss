@@ -23,12 +23,8 @@ body {
   font-family: 'Poppins', sans-serif;
   font-weight: normal;
   font-style: normal;
+  background-color: $backgroundColorMain;
 }
-
-// section,
-// footer {
-//   scroll-margin-top: 90px;
-// }
 
 .container {
   max-width: 1172px + 30px;
@@ -62,7 +58,7 @@ button {
   font-size: 16px;
   line-height: 20px;
 
-  background: #47cf34;
+  background-color: $orangeColor;
   border-radius: 8px;
   border: 0;
   transition: 0.2s ease;
@@ -100,30 +96,22 @@ label {
   font-family: inherit;
 }
 
-// //For fixed header
-// body {
-//   padding-top: 90px;
-// }
+.exit {
+  opacity: 0;
+  animation: exit $transition;
+  transition: $transition;
+}
 
-// @media (max-width: $grid-breakpoints-lg) {
-//   body {
-//     padding-top: 70px;
-//   }
-
-//   section,
-//   footer {
-//     scroll-margin-top: 70px;
-//   }
-// }
-
-// @media (max-width: $grid-breakpoints-sm) {
-//   .mobile {
-//     display: block;
-//   }
-// }
+@keyframes exit {
+  0% {transform: translateX(0); opacity: 1;}
+  20% {transform: translateX(10%); opacity: 0.9}
+  100% {transform: translateX(-100%); opacity: 0;}
+}
 
 .hide {
   opacity: 0;
   visibility: hidden;
   overflow: hidden;
 }
+
+
