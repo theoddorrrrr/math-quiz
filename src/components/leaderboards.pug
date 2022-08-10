@@ -1,0 +1,14 @@
+.leaderboards 
+    .leaderboards__body 
+        a(href="/index.html"): .game-end__back: span back to menu
+
+         .game-mode 
+            label.game-mode__label
+                input(type="radio" name="gamemode" value="practice" id="practice") 
+                label(for="practice"): span Practice
+            label.game-mode__label
+                input(type="radio" name="gamemode" checked value="time-attack" id="time-attack") 
+                label(for="time-attack"): span Time-Attack
+
+        h1.leaderboards__title Leaderboards 
+        ul.leaderboards__list 

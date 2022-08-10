@@ -1,6 +1,10 @@
 // Start
 
 .game {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5em;
 }
 .game__header {
   display: flex;
@@ -15,21 +19,57 @@
     text-align: center;
   }
 }
+
+.game__body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  gap: 1em;
+}
+.game__numbers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3em;
+}
+.game__num_one {
+}
+
+.game__num,
+.game__operator,
+.game__input {
+  font-size: clamp(30px, 7vw, 50px);
+}
+.game__result {
+}
+.game__input {
+  text-align: center;
+  width: 150px;
+  height: 100px;
+  border: 1px solid black;
+  border-radius: 0;
+  background-color: white;
+  padding: 0 5px;
+}
+
 .username {
 }
-p.game__username {
+.game__username {
 }
 .difficult {
 }
-p.game__difficult {
+.game__difficult {
 }
 .time {
 }
-p.game__score {
+.game__score {
 }
 .score {
 }
-p.game__time {
+.game__time {
 }
 
 // End
@@ -63,7 +103,7 @@ p.game__time {
   text-align: center;
 
   a {
-    color: inherit
+    color: inherit;
   }
 }
 .game-end__back {
@@ -94,7 +134,7 @@ p.game__time {
 }
 
 ._show {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: all;
-  }
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}

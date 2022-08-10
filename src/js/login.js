@@ -37,6 +37,8 @@ if (
         "user",
         JSON.stringify({ username: input.value, gamemode: gamemode })
       );
+
+      if(!localStorage.getItem("leaderboards")) localStorage.setItem("leaderboards", JSON.stringify([]))
     }
   };
 

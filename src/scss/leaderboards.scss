@@ -1,0 +1,29 @@
+.leaderboards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  a {
+    text-align: center;
+  }
+}
+.leaderboards__body {
+  max-width: 800px;
+  width: 100%;
+  margin: 20px auto;
+  padding: 20px 15px;
+  border: 1px solid black;
+  box-shadow: 1px 1px 5px black;
+}
+
+.leaderboards__title {
+  text-align: center;
+  font-weight: normal;
+}
+
+.leaderboards__list {
+    width: 100%;
+}
+
+.leaderboards__item {
+}
