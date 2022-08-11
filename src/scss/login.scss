@@ -2,7 +2,7 @@ main {
   background-color: $backgroundColorMain;
 }
 
-.login{
+.login {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,6 +54,20 @@ main {
   margin: 10px auto 0 auto;
 }
 
+.btn-leaderboards {
+  width: 100%;
+  max-width: 300px;
+
+  padding: 1em 0;
+  margin: 10px auto 0 auto;
+
+  background-color: transparent;
+  color: $orangeColor;
+  letter-spacing: 4px;
+  font-size: 20px;
+  text-decoration: underline;
+}
+
 .game-mode {
   display: flex;
   justify-content: center;
@@ -92,7 +106,8 @@ main {
     }
 
     input:checked + label {
-      background-color: rgb(180, 179, 179);
+      background-color: #3a3d3f;
+      color: white;
     }
   }
 }
