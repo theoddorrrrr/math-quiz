@@ -31,9 +31,9 @@ if (window.location.pathname === "/leaderboards.html") {
       showInfo();
       if (gamemodeCurrect === "time-attack") {
         list.innerHTML = "";
-        const users = leaderboards.filter(
-          (item) => item.gamemode === gamemodeCurrect
-        );
+        const users = leaderboards
+          .filter((item) => item.gamemode === gamemodeCurrect)
+          .sort((a, b) => b.score - a.score);
         users.map((item) => {
           list.insertAdjacentHTML("beforeend", leaderboardsItem(item));
         });
@@ -41,9 +41,9 @@ if (window.location.pathname === "/leaderboards.html") {
 
       if (gamemodeCurrect === "practice") {
         list.innerHTML = "";
-        const users = leaderboards.filter(
-          (item) => item.gamemode === gamemodeCurrect
-        );
+        const users = leaderboards
+          .filter((item) => item.gamemode === gamemodeCurrect)
+          .sort((a, b) => b.score - a.score);
         users.map((item) => {
           list.insertAdjacentHTML("beforeend", leaderboardsItem(item));
         });
@@ -55,4 +55,3 @@ if (window.location.pathname === "/leaderboards.html") {
   showResult();
 }
 
-// ShowResult on change

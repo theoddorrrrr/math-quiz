@@ -3,6 +3,8 @@
   justify-content: center;
   align-items: center;
 
+  margin: 0 20px;
+
   a {
     text-align: center;
 
@@ -78,6 +80,19 @@
 }
 
 .leaderboards__name {
+  text-overflow: ellipsis;
+  max-width: 140px;
+  white-space: nowrap;
+  overflow: hidden;
+  @media (min-width: $sm) {
+    max-width: 230px;
+  }
+  @media (min-width: $md) {
+    max-width: 400px;
+  }
+  @media (min-width: $lg) {
+    max-width: 600px;
+  }
 }
 .leaderboards__score {
 }

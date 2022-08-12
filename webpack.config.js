@@ -35,6 +35,10 @@ module.exports = {
       template: path.join(__dirname, 'src/pages/leaderboards.pug'),
       filename: 'leaderboards.html',
     }),
+    new HTMLWebpackPlugin({
+      template: path.join(__dirname, 'src/pages/rules.pug'),
+      filename: 'rules.html',
+    }),
 
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({

@@ -1,0 +1,50 @@
+.rules {
+    margin: 0 20px;
+}
+.rules__body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+
+  margin: 0 20px;
+
+  max-width: 800px;
+  width: 100%;
+
+  margin: 20px auto;
+  padding: 20px 15px 70px 15px;
+  box-shadow: 1px 1px 20px 4px rgb(177, 177, 177);
+
+  a {
+    span {
+      text-decoration: underline;
+    }
+  }
+}
+.rules__title {
+  text-align: center;
+  font-weight: normal;
+  font-size: clamp(30px, 7vw, 40px);
+}
+.rules__items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1em;
+}
+.rules__item {
+  padding: 1em;
+}
+
+.rules-back {
+  text-align: left;
+  position: absolute;
+  right: 50%;
+  transform: translateX(50%);
+  bottom: 30px;
+  border: 1px solid black;
+  padding: 10px;
+}

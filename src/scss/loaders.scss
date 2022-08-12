@@ -59,11 +59,12 @@
     flex-direction: column;
 
     position: fixed;
+    z-index: 10;
 
     width: 100vw;
     height: 100vh;
 
-    background-color: $orangeColorTransparrent;
+    background-color: $orangeColor;
     transition: 0.5s;
 
     span {
