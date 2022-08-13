@@ -10,6 +10,9 @@ if (window.location.pathname === "/app.html") {
   let isPaused = false,
     isEnd = false;
   let time = gamemode === "time-attack" ? 60 : 0;
+  let difficult = "Noob";
+
+  let strike = 0;
   let result = 0;
   let score = 0,
     correct = 0,
@@ -27,6 +30,7 @@ if (window.location.pathname === "/app.html") {
 
   gameName.innerText = username;
   gameTime.innerText = time;
+  gameDifficult.innerText = difficult;
 
   const menuOpen = () => {
     isPaused = true;
@@ -58,10 +62,16 @@ if (window.location.pathname === "/app.html") {
         username: username,
         gamemode: gamemode,
         score: score,
+        correct: correct,
+        uncorrect: uncorrect,
       });
     }
     if (selectedUser) {
-      if (selectedUser.score < score) selectedUser.score = score;
+      if (selectedUser.score < score) {
+        selectedUser.score = score;
+        selectedUser.correct = correct;
+        selectedUser.uncorrect = uncorrect;
+      }
     }
     localStorage.setItem("leaderboards", JSON.stringify(users));
   };
@@ -78,7 +88,7 @@ if (window.location.pathname === "/app.html") {
 
   setTimeout(() => {
     document.querySelector(".game-start").classList.add("hide");
-    gameNumbers.classList.add("show-num")
+    gameNumbers.classList.add("show-num");
     gameInput.focus();
     menu.addEventListener("click", menuOpen);
 
@@ -110,8 +120,13 @@ if (window.location.pathname === "/app.html") {
         };
 
         const getNum = () => {
-          let currNum1 = randomNumbers(1, 10);
-          let currNum2 = randomNumbers(1, 10);
+          let min, max
+          if(difficult === "Noob") min = 1, max = 10
+          if(difficult === "Intermediate") min = 1, max = 20
+          if(difficult === "Advanced") min = 1, max = 50
+
+          let currNum1 = randomNumbers(min, max);
+          let currNum2 = randomNumbers(min, max);
 
           if (currNum1 > currNum2) {
             num1 = currNum1;
@@ -205,27 +220,53 @@ if (window.location.pathname === "/app.html") {
           });
         };
 
+        const setDifficult = () => {
+          if(strike >= 5 && difficult === "Noob") {
+            difficult = "Intermediate"
+            strike = 0
+            gameDifficult.classList.add("pop")
+            gameDifficult.addEventListener("animationend", () => {
+              gameDifficult.classList.remove("pop")
+            })
+          }
+          else if(strike >= 5 && difficult === "Intermediate") {
+            difficult = "Advanced"
+            strike = 0
+            gameDifficult.classList.add("pop")
+            gameDifficult.addEventListener("animationend", () => {
+              gameDifficult.classList.remove("pop")
+            })
+          }
+          else if(difficult === "Advanced") {
+            strike = 0
+          }
+          gameDifficult.innerText = difficult
+        }
+
         const btnHandler = (e) => {
           if (
             isPaused === false &&
             e.code === "Enter" &&
             gameInput.value.trim() !== ""
           ) {
-            gameNumbers.classList.remove("show-num")
+            gameNumbers.classList.remove("show-num");
             document.removeEventListener("keypress", btnHandler);
             if (+gameInput.value === result) {
               score = score + 1;
               correct = correct + 1;
+              strike = strike + 1;
               animationPlus();
             } else {
               score = score - 1;
+              strike = 0;
+              uncorrect = uncorrect + 1;
               if (score < 0) score = 0;
               else animationMinus();
-              uncorrect = uncorrect + 1;
             }
             gameInput.value = "";
+            setDifficult();
             gameCycle();
-            setTimeout(() => gameNumbers.classList.add("show-num"), 0)
+            setTimeout(() => gameNumbers.classList.add("show-num"), 0);
           }
         };
 
@@ -234,6 +275,7 @@ if (window.location.pathname === "/app.html") {
           numTwo.innerText = num2;
           operand.innerText = operator;
           gameScore.innerText = score;
+          gameDifficult.innerText = difficult;
         };
 
         document.addEventListener("keypress", btnHandler);
@@ -273,8 +315,13 @@ if (window.location.pathname === "/app.html") {
         };
 
         const getNum = () => {
-          let currNum1 = randomNumbers(1, 10);
-          let currNum2 = randomNumbers(1, 10);
+          let min, max
+          if(difficult === "Noob") min = 1, max = 10
+          if(difficult === "Intermediate") min = 1, max = 20
+          if(difficult === "Advanced") min = 1, max = 50
+
+          let currNum1 = randomNumbers(min, max);
+          let currNum2 = randomNumbers(min, max);
 
           if (currNum1 > currNum2) {
             num1 = currNum1;
@@ -368,27 +415,53 @@ if (window.location.pathname === "/app.html") {
           });
         };
 
+        const setDifficult = () => {
+          if(strike >= 5 && difficult === "Noob") {
+            difficult = "Intermediate"
+            strike = 0
+            gameDifficult.classList.add("pop")
+            gameDifficult.addEventListener("animationend", () => {
+              gameDifficult.classList.remove("pop")
+            })
+          }
+          else if(strike >= 5 && difficult === "Intermediate") {
+            difficult = "Advanced"
+            strike = 0
+            gameDifficult.classList.add("pop")
+            gameDifficult.addEventListener("animationend", () => {
+              gameDifficult.classList.remove("pop")
+            })
+          }
+          else if(difficult === "Advanced") {
+            strike = 0
+          }
+          gameDifficult.innerText = difficult
+        }
+
         const btnHandler = (e) => {
           if (
             isPaused === false &&
             e.code === "Enter" &&
             gameInput.value.trim() !== ""
           ) {
-            gameNumbers.classList.remove("show-num")
+            gameNumbers.classList.remove("show-num");
             document.removeEventListener("keypress", btnHandler);
             if (+gameInput.value === result) {
               score = score + 1;
               correct = correct + 1;
+              strike = strike + 1;
               animationPlus();
             } else {
               score = score - 1;
+              strike = 0;
+              uncorrect = uncorrect + 1;
               if (score < 0) score = 0;
               else animationMinus();
-              uncorrect = uncorrect + 1;
             }
             gameInput.value = "";
+            setDifficult();
             gameCycle();
-            setTimeout(() => gameNumbers.classList.add("show-num"), 0)
+            setTimeout(() => gameNumbers.classList.add("show-num"), 0);
           }
         };
 

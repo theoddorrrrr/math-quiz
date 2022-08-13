@@ -28,7 +28,7 @@
     align-items: center;
     flex-direction: column;
 
-    gap: 1em;
+    gap: 2em;
   }
   .game__numbers {
     display: flex;
@@ -94,38 +94,35 @@
     }
   }
 
+  .pop {
+    animation: pop 1s;
+  }
+
+  @keyframes pop {
+    0% {transform: scale(1);}
+    50% {transform: scale(1.25);}
+    100% {transform: scale(1);}
+  }
+
   .game__num,
   .game__operator,
   .game__input {
     font-size: clamp(30px, 7vw, 50px);
   }
+
   .game__result {
+    box-shadow: 1px 1px 25px 10px #ffffff;
   }
+
   .game__input {
     text-align: center;
     width: 150px;
     height: 100px;
-    border: 1px solid black;
+    border: 1px solid #ffecec;
     border-radius: 0;
     background-color: white;
     padding: 0 5px;
-  }
-
-  .username {
-  }
-  .game__username {
-  }
-  .difficult {
-  }
-  .game__difficult {
-  }
-  .time {
-  }
-  .game__score {
-  }
-  .score {
-  }
-  .game__time {
+    outline: 0;
   }
 
   // End
@@ -145,7 +142,7 @@
     color: white;
 
     background-color: $orangeColor;
-    z-index: 99999;
+    z-index: 100;
     transition: 0.5s;
 
     opacity: 0;
@@ -166,16 +163,6 @@
     text-decoration: underline;
     cursor: pointer;
     margin-bottom: 10px;
-  }
-  .game-end__body {
-  }
-  .game-end__title {
-  }
-  .game-end__score {
-  }
-  .game-end__correct {
-  }
-  .game-end__incorrect {
   }
 
   .game-end__btn {
@@ -256,7 +243,7 @@
   color: white;
 
   background-color: $orangeColor;
-  z-index: 99999;
+  z-index: 101;
   transition: 0.5s;
 
   opacity: 0;
