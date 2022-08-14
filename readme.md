@@ -15,7 +15,7 @@
 
 * Then enter the folder with project and install all dependencies.
 ```.bash
-    cd business-practice
+    cd math-quiz
 
     npm install
 ```
