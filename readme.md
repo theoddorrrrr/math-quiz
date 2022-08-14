@@ -10,7 +10,7 @@
 * Clone the repository.
 
 ```.bash
-    git clone https://github.com/#
+    git clone https://github.com/theoddorrrrr/math-quiz.git
 ```
 
 * Then enter the folder with project and install all dependencies.
