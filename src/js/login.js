@@ -20,7 +20,7 @@ if (
 
   const btnHandler = (e) => {
     let isOkayValidated;
-    if (e.code === "Enter" || e.code === undefined) {
+    if (e.keyCode === 13 || e.code === undefined) {
       input.addEventListener("input", () => {
         inputValidate(input, error);
       });

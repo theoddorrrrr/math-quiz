@@ -203,7 +203,7 @@ if (window.location.pathname === "/app.html") {
     if (
       isPaused === false &&
       gameInput.value.trim() !== "" &&
-      (e.code === "Enter" || e.keyCode === 13) 
+      e.keyCode === 13
     ) {
       e.preventDefault()
       gameNumbers.classList.remove("show-num");
