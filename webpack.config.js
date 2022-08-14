@@ -2,9 +2,6 @@ const path = require("path");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
-const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
-const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
   mode: "development",
@@ -41,14 +38,6 @@ module.exports = {
     }),
 
     new CleanWebpackPlugin(),
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: path.resolve(__dirname, "./src/assets"),
-          to: path.resolve(__dirname, "dist/assets"),
-        },
-      ],
-    }),
     new MiniCssExtractPlugin(), 
   ],
   module: {
@@ -66,10 +55,6 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
       {
-        test: /\.(jpe?g|png|svg)$/i,
-        type: "asset",
-      },
-      {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
@@ -79,30 +64,6 @@ module.exports = {
           },
         },
       },
-    ],
-  },
-  optimization: {
-    minimize: true,
-    minimizer: [
-      new TerserPlugin(),
-      new ImageMinimizerPlugin({
-        minimizer: {
-          implementation: ImageMinimizerPlugin.squooshMinify,
-          options: {
-            encodeOptions: {
-              mozjpeg: {
-                quality: 100,
-              },
-              webp: {
-                lossless: 1,
-              },
-              avif: {
-                cqLevel: 0,
-              },
-            },
-          },
-        },
-      }),
     ],
   },
 };
