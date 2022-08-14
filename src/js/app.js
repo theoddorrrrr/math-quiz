@@ -119,7 +119,7 @@ if (window.location.pathname === "/app.html") {
 
     if (isDivisibleNumbers) return;
     if (num2 === 0) {
-      const nums = getNum();
+      const nums = getNum();;
       console.log(nums);
     }
 
