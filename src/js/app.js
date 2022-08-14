@@ -1,4 +1,9 @@
-import {animationPlus, animationMinus, randomNumbers, isDivisible} from "./helpers"
+import {
+  animationPlus,
+  animationMinus,
+  randomNumbers,
+  isDivisible,
+} from "./helpers";
 
 if (window.location.pathname === "/app.html") {
   const loaderSeconds = document.querySelector(".game-start span");
@@ -96,13 +101,13 @@ if (window.location.pathname === "/app.html") {
     if (difficult === "Noob") (min = 1), (max = 10);
     if (difficult === "Intermediate") (min = 1), (max = 20);
     if (difficult === "Advanced") (min = 1), (max = 50);
-  
+
     let currNum1 = randomNumbers(min, max);
     let currNum2 = randomNumbers(min, max);
-  
+
     console.log(min, max);
     console.log(currNum1, currNum2);
-  
+
     if (currNum1 > currNum2) {
       num1 = currNum1;
       num2 = currNum2;
@@ -111,15 +116,15 @@ if (window.location.pathname === "/app.html") {
       num2 = currNum1;
     }
   };
-  
+
   const primeNum = () => {
     const isDivisibleNumbers = isDivisible(num1, num2);
 
     if (isDivisibleNumbers) return;
     if (num2 === 0) {
-      const nums = getNum()
+      const nums = getNum();
       console.log(nums);
-    };
+    }
 
     num2 = num2 - 1;
     primeNum();
@@ -200,8 +205,8 @@ if (window.location.pathname === "/app.html") {
   const btnHandler = (e) => {
     if (
       isPaused === false &&
-      e.code === "Enter" &&
-      gameInput.value.trim() !== ""
+      gameInput.value.trim() !== "" &&
+      (e.code === "Enter" || e.keyCode === 13) 
     ) {
       gameNumbers.classList.remove("show-num");
       if (+gameInput.value === result) {
@@ -238,14 +243,13 @@ if (window.location.pathname === "/app.html") {
     textOutput();
   };
 
-  //Timer before game starts  
+  //Timer before game starts
   let counter = 2;
   let intervalId = setInterval(() => {
     if (counter === 0) clearInterval(intervalId);
     loaderSeconds.innerText = counter;
     counter--;
   }, 1000);
-
 
   //Start of the game after timer
   setTimeout(() => {
